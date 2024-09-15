@@ -10,10 +10,17 @@ int main()
     for(int i=1;i<=sqrt(n);i++)
     {
         if(n%i==0)
-        c++;
+        {
+            c++;
+            if(n/i!=i)
+            c++;
+        }
     }
-    if(c!=1)
-    cout<<"Not prime"<<endl;
+    if(c==2)
+    cout<<"prime"<<endl;
     else
-    cout<<"Prime"<<endl;
+    cout<<"Not Prime"<<endl;
 }
+
+
+ 
