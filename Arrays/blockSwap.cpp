@@ -2,11 +2,11 @@
 using namespace std;
 int main()
 {
-    int k,n;
-    cout<<"Enter a value of k and n and elements of array"<<endl;
-    cin>>k;
-    cin>>n;
     vector<int>arr;
+    int n,k;
+    cout<<"Enter the size and position to be shifted"<<endl;
+    cin>>n>>k;
+    cout<<"Enter elements in array"<<endl;
     for(int i=0;i<n;i++)
     {
         int ele;
@@ -14,5 +14,11 @@ int main()
         arr.push_back(ele);
     }
     k=k%n;
-    
+    reverse(arr.begin(),arr.begin()+k);
+    reverse(arr.begin()+k, arr.end());
+    reverse(arr.begin(),arr.end());
+    cout<<"The array after shifting is as follows:"<<endl;
+    for(auto it:arr)
+    cout<<it<<" ";
+    cout<<endl;
 }
