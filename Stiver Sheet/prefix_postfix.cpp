@@ -2,12 +2,12 @@
 using namespace std;
 int main()
 {
-    stack<string>st;
     string s;
-    cout<<"Enter a postfix expression"<<endl;
+    cout<<"Enter a prefix expression"<<endl;
     cin>>s;
-    int i=0;
-    while(i<s.length())
+    int i=s.length()-1;
+    stack<string>st;
+    while(i>=0)
     {
         if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9'))
         st.push(string(1,s[i]));
@@ -17,10 +17,10 @@ int main()
             st.pop();
             string ch2=st.top();
             st.pop();
-            string temp=s[i]+ch1+ch2;
+            string temp=ch1+ch2+string(1, s[i]);
             st.push(temp);
         }
-        ++i;
+        i--;
     }
-    cout<<"The prefix expression : "<<st.top();
+    cout<<"The postfix expression : "<<st.top();
 }
